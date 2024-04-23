@@ -47,8 +47,8 @@ input[type="number"]::-webkit-outer-spin-button {
   top: 1.6rem;
   left: 1.5rem;
   min-height: 24vh;
-  min-width: 27.5vw;
-  border: 1px solid black;
+  /* min-width: 27.5vw; */
+  min-width: 400px;
 }
 
 .card-details-display-container .circle {
@@ -84,19 +84,27 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-left: 1rem;
 }
 
-.card-details-display-container .card-name-cvv {
-  display: flex;
-  justify-content: space-between;
+.card-details-display-container .display-card-name {
+  color: white;
+  position: absolute;
+  top: 170px;
+  letter-spacing: 2px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 300;
 }
 
-.card-details-display-container .card-name-cvv p {
-  margin-top: 2rem;
-  font-size: 1rem;
-  font-weight: 400;
+.card-details-display-container .display-exp-dt {
   color: white;
+  position: absolute;
+  top: 170px;
+  right: 0;
+  letter-spacing: 2px;
+  font-size: 1rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  font-weight: 300;
 }
+
 .card-back {
   position: absolute;
   top: 28rem;
