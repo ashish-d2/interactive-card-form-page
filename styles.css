@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --input-border-color: #600594;
+  --color-red: hsl(0, 100%, 66%);
+
+  --color-white: hsl(0, 0%, 100%);
+  --light-violet: hsl(270, 3%, 87%);
+  --dark-violet: hsl(279, 6%, 55%);
+  --dark-dark-violet: hsl(278, 68%, 11%);
+}
+
+body {
+  min-width: 100vw;
+  font-family: "Space Grotesk", sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.side-img {
+  min-height: 100vh;
+  max-width: 30vw;
+}
+
+.card-front {
+  position: absolute;
+  /* width: 26rem;
+  height: 16rem; */
+  top: 10rem;
+  left: 10rem;
+}
+
+.card-back {
+  position: absolute;
+  top: 28rem;
+  left: 15rem;
+}
+
+.card-form {
+  display: flex;
+  flex-direction: column;
+  margin-right: 12rem;
+  min-width: 30vw;
+}
+
+.card-form label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  letter-spacing: 2px;
+  color: var(--dark-dark-violet);
+}
+
+.card-form input {
+  border: 1px solid var(--light-violet);
+  border-radius: 8px;
+  height: 2.8rem;
+  margin-bottom: 0.7rem;
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  color: var(--dark-dark-violet);
+  caret-color: var(--dark-dark-violet);
+}
+
+.card-form input:focus {
+  outline-color: var(--input-border-color);
+}
+
+.card-form input:hover {
+  border-color: #600594;
+}
+
+.card-form input::placeholder {
+  font-size: 1.1rem;
+  color: var(--dark-violet);
+}
+
+label {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.exp-date-cvv {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.exp-date input {
+  width: 6rem;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  background-color: var(--dark-dark-violet);
+  color: var(--color-white);
+  height: 3rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+}
