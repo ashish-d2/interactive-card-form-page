@@ -37,14 +37,66 @@ input[type="number"]::-webkit-outer-spin-button {
   max-width: 30vw;
 }
 
-.card-front {
-  position: absolute;
-  /* width: 26rem;
-  height: 16rem; */
-  top: 10rem;
-  left: 10rem;
+/* card front styles */
+.img-container-front {
+  position: relative;
 }
 
+.card-details-display-container {
+  position: absolute;
+  top: 1.6rem;
+  left: 1.5rem;
+  min-height: 24vh;
+  min-width: 27.5vw;
+  border: 1px solid black;
+}
+
+.card-details-display-container .circle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3.5rem;
+}
+
+.circle .big-circle {
+  background-color: white;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+}
+
+.circle .small-circle {
+  background-color: transparent;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid white;
+  margin-left: 1rem;
+}
+
+.card-details-display-container .card-number {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.card-details-display-container .card-number span:not(:first-child) {
+  margin-left: 1rem;
+}
+
+.card-details-display-container .card-name-cvv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-details-display-container .card-name-cvv p {
+  margin-top: 2rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 .card-back {
   position: absolute;
   top: 28rem;
