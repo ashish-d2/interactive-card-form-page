@@ -37,9 +37,18 @@ input[type="number"]::-webkit-outer-spin-button {
   max-width: 30vw;
 }
 
+.card-img-container {
+  position: relative;
+  top: -250px;
+  left: -500px;
+}
+
 /* card front styles */
 .img-container-front {
-  position: relative;
+  position: absolute;
+  z-index: 1;
+  /* top: -130px;
+  left: -300px; */
 }
 
 .card-details-display-container {
@@ -105,12 +114,31 @@ input[type="number"]::-webkit-outer-spin-button {
   font-weight: 300;
 }
 
-.card-back {
+/* card back styles */
+.img-container-back {
   position: absolute;
-  top: 28rem;
-  left: 15rem;
+  top: 250px;
+  left: 75px;
 }
 
+/* .img-container-back .card-back {
+  position: absolute;
+  top: 430px;
+  left: 15rem;
+} */
+
+.img-container-back .display-cvv {
+  position: absolute;
+  top: 112px;
+  right: 60px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-style: italic;
+}
+
+/* card form styles */
 .card-form {
   display: flex;
   flex-direction: column;
@@ -120,6 +148,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .card-form label {
   display: block;
+  font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
   margin-top: 1rem;
