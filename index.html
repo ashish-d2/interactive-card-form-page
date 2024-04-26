@@ -30,14 +30,9 @@
             <div class="big-circle"></div>
             <div class="small-circle"></div>
           </div>
-          <p class="card-number">
-            <span>9591</span>
-            <span>6489</span>
-            <span>6380</span>
-            <span>0000</span>
-          </p>
+          <p class="card-number">0000 0000 0000 0000</p>
 
-          <p class="display-card-name">Ashish Dungdung</p>
+          <p class="display-card-name">Jane Appleseed</p>
           <p class="display-exp-dt">00/00</p>
         </div>
       </div>
@@ -59,8 +54,9 @@
 
         <label for="card-number">Card Number</label>
         <input
-          type="number"
+          type="text"
           id="card-number"
+          maxlength="19"
           placeholder="e.g. 1234 5678 9123 0000"
         />
 
@@ -68,15 +64,20 @@
           <div class="exp-date">
             <label for="exp-month">Exp. Date (MM/YY)</label>
             <input type="number" id="exp-month" placeholder="MM" />
-            <input type="number" id="exp-YY" placeholder="YY" />
+            <input type="number" id="exp-year" placeholder="YY" />
           </div>
           <div class="cvv">
             <label for="cvv-number">CVV</label>
-            <input type="number" id="cvv-number" placeholder="e.g. 123" />
+            <input
+              type="number"
+              id="cvv-number"
+              maxlength="16"
+              placeholder="e.g. 123"
+            />
           </div>
         </div>
 
-        <button type="submit">Confirm</button>
+        <button type="submit" class="submit-btn">Confirm</button>
       </form>
     </main>
 
