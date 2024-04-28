@@ -196,6 +196,16 @@ label {
   width: 5rem;
 }
 
+.card-form .error-message {
+  color: var(--color-red);
+  font-size: 0.8rem;
+  margin-top: -10px;
+}
+
+.card-form .error-input {
+  border: 1px solid var(--color-red);
+}
+
 button {
   border: none;
   border-radius: 10px;

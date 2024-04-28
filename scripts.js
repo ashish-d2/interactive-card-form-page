@@ -14,12 +14,25 @@ const displayCardNumber = document.querySelector(".card-number");
 const displayExpDate = document.querySelector(".display-exp-dt");
 const displayCvv = document.querySelector(".display-cvv");
 
+// to display error message
+const errorCardholderName = document.getElementById("error-cardholder-name");
+const errorCardnumber = document.getElementById("error-cardnumber");
+const errorExpDate = document.getElementById("error-expdt");
+const errorCvv = document.getElementById("error-cvv");
+
 // Global variable
 let cardholderName = "";
 let cardNumber = "";
+let cardNumberDisplay = "";
 let expMonth = "";
 let expYear = "";
 let cvv = "";
+
+let nameValid = true;
+let cardNumberValid = true;
+let expMonthValid = true;
+let expYearValid = true;
+let cvvValid = true;
 
 // Get card holder name
 inputCardholderNameField.addEventListener("input", function (event) {
@@ -38,7 +51,7 @@ inputCardNumberField.addEventListener("input", function (event) {
     formattedNumber += cardNumber[i];
   }
 
-  cardNumber = formattedNumber;
+  cardNumberDisplay = formattedNumber;
 
   event.target.value = formattedNumber;
 });
@@ -64,10 +77,132 @@ const displayCardDetails = function (name, number, expire, cvv) {
   displayExpDate.textContent = expire;
 };
 
+// Error Logic
+// Render Error
+const renderError = function (renderErrorInput, renderErrorMessage, message) {
+  renderErrorInput.classList.add("error-input");
+  renderErrorMessage.classList.add("error-message");
+  renderErrorMessage.textContent = message;
+};
+
+// Remove Error
+const removeError = function (renderErrorInput, renderErrorMessage) {
+  renderErrorInput.classList.remove("error-input");
+  renderErrorMessage.classList.remove("error-message");
+  renderErrorMessage.textContent = "";
+};
+
+const checkNameField = function () {
+  if (cardholderName === "") {
+    renderError(
+      inputCardholderNameField,
+      errorCardholderName,
+      "Cannot be blank"
+    );
+    return false;
+  }
+
+  if (nameValid === false) {
+    removeError(inputCardholderNameField, errorCardholderName);
+    return true;
+  }
+
+  return true;
+};
+
+const checkCardField = function () {
+  if (cardNumber === "") {
+    renderError(inputCardNumberField, errorCardnumber, "Cannot be blank");
+    return false;
+  }
+
+  if (isNaN(cardNumber)) {
+    renderError(
+      inputCardNumberField,
+      errorCardnumber,
+      "Wrong format, numbers only"
+    );
+
+    return false;
+  }
+
+  if (cardNumberValid === false) {
+    removeError(inputCardNumberField, errorCardnumber);
+    return true;
+  }
+
+  return true;
+};
+
+const checkExpMonth = function () {
+  if (expMonth === "") {
+    renderError(inputExpMonthField, errorExpDate, "Cannot be blank.");
+    return false;
+  }
+
+  if (expMonthValid === false) {
+    removeError(inputExpMonthField, errorExpDate);
+    return true;
+  }
+
+  return true;
+};
+
+const checkExpYear = function () {
+  if (expYear === "") {
+    renderError(inputExpYearField, errorExpDate, "Cannot be blank.");
+    return false;
+  }
+
+  if (expYearValid === false) {
+    removeError(inputExpYearField, errorExpDate);
+    return true;
+  }
+
+  return true;
+};
+
+const checkCvv = function () {
+  if (cvv === "") {
+    renderError(inputCvvNumberField, errorCvv, "Cannot be blank.");
+    return false;
+  }
+
+  if (isNaN(cvv)) {
+    renderError(inputCvvNumberField, errorCvv, "Wrong format, numbers only");
+
+    return false;
+  }
+
+  if (cvvValid === false) {
+    removeError(inputCvvNumberField, errorCvv);
+    return true;
+  }
+
+  return true;
+};
+
+const formValid = function () {
+  nameValid = checkNameField();
+  cardNumberValid = checkCardField();
+  expMonthValid = checkExpMonth();
+  expYearValid = checkExpYear();
+  cvvValid = checkCvv();
+
+  return (
+    nameValid && cardNumberValid && expMonthValid && expYearValid && cvvValid
+  );
+};
+
 // Submit btn
 submitButton.addEventListener("click", function (event) {
   event.preventDefault();
   console.log(cardholderName, cardNumber, expMonth, expYear, cvv);
   let expDate = expMonth + "/" + expYear;
-  displayCardDetails(cardholderName, cardNumber, expDate, cvv);
+
+  if (!formValid()) {
+    return;
+  }
+
+  displayCardDetails(cardholderName, cardNumberDisplay, expDate, cvv);
 });

@@ -51,6 +51,7 @@
           id="cardholder-name"
           placeholder="e.g. Jane Appleseed"
         />
+        <p id="error-cardholder-name"></p>
 
         <label for="card-number">Card Number</label>
         <input
@@ -59,21 +60,24 @@
           maxlength="19"
           placeholder="e.g. 1234 5678 9123 0000"
         />
+        <p id="error-cardnumber"></p>
 
         <div class="exp-date-cvv">
           <div class="exp-date">
             <label for="exp-month">Exp. Date (MM/YY)</label>
             <input type="number" id="exp-month" placeholder="MM" />
             <input type="number" id="exp-year" placeholder="YY" />
+            <p id="error-expdt"></p>
           </div>
           <div class="cvv">
             <label for="cvv-number">CVV</label>
             <input
-              type="number"
+              type="text"
               id="cvv-number"
-              maxlength="16"
+              maxlength="3"
               placeholder="e.g. 123"
             />
+            <p id="error-cvv"></p>
           </div>
         </div>
 
