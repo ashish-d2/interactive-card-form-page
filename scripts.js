@@ -31,6 +31,7 @@ let cardNumberDisplay = "";
 let expMonth = "";
 let expYear = "";
 let cvv = "";
+let currentDate = new Date();
 
 let nameValid = true;
 let cardNumberValid = true;
@@ -45,7 +46,7 @@ inputCardholderNameField.addEventListener("input", function (event) {
 
 // Get card holder number
 inputCardNumberField.addEventListener("input", function (event) {
-  cardNumber = event.target.value.replace(/\s/g, "");
+  cardNumber = Number(event.target.value.replace(/\s/g, ""));
   let formattedNumber = "";
 
   for (let i = 0; i < cardNumber.length; i++) {
@@ -62,16 +63,16 @@ inputCardNumberField.addEventListener("input", function (event) {
 
 // Get exp-date
 inputExpMonthField.addEventListener("input", function (event) {
-  expMonth = event.target.value;
+  expMonth = Number(event.target.value);
 });
 
 inputExpYearField.addEventListener("input", function (event) {
-  expYear = event.target.value;
+  expYear = Number(event.target.value);
 });
 
 // Get CVV
 inputCvvNumberField.addEventListener("input", function (event) {
-  cvv = event.target.value;
+  cvv = Number(event.target.value);
 });
 
 const displayCardDetails = function (name, number, expire, cvv) {
@@ -144,6 +145,11 @@ const checkExpMonth = function () {
     return false;
   }
 
+  if (expMonth <= 0 || expMonth > 12) {
+    renderError(inputExpMonthField, errorExpDate, "Must be valid date.");
+    return false;
+  }
+
   if (expMonthValid === false) {
     removeError(inputExpMonthField, errorExpDate);
     return true;
@@ -155,6 +161,16 @@ const checkExpMonth = function () {
 const checkExpYear = function () {
   if (expYear === "") {
     renderError(inputExpYearField, errorExpDate, "Cannot be blank.");
+    return false;
+  }
+
+  if (expYear < currentDate.getFullYear()) {
+    renderError(inputExpYearField, errorExpDate, "Must be a valid date.");
+    return false;
+  }
+
+  if (expMonth < currentDate.getMonth() + 1) {
+    renderError(inputExpYearField, errorExpDate, "Card Expired.");
     return false;
   }
 
