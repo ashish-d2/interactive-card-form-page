@@ -218,3 +218,43 @@ button {
   font-size: 1.1rem;
   margin-top: 1.8rem;
 }
+
+/* completed */
+
+.completed {
+  margin-right: 10rem;
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.completed img {
+  margin-bottom: 2rem;
+}
+
+.completed .heading {
+  margin-bottom: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--dark-dark-violet);
+}
+
+.completed .message {
+  margin-bottom: 1rem;
+  color: var(--dark-violet);
+}
+
+.completed .continue {
+  width: inherit;
+  height: 3.5rem;
+  background-color: var(--dark-dark-violet);
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+
+.hidden {
+  display: none;
+}

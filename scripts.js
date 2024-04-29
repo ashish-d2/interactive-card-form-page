@@ -20,6 +20,10 @@ const errorCardnumber = document.getElementById("error-cardnumber");
 const errorExpDate = document.getElementById("error-expdt");
 const errorCvv = document.getElementById("error-cvv");
 
+//
+const form = document.querySelector(".card-form");
+const completed = document.querySelector(".completed");
+
 // Global variable
 let cardholderName = "";
 let cardNumber = "";
@@ -205,4 +209,30 @@ submitButton.addEventListener("click", function (event) {
   }
 
   displayCardDetails(cardholderName, cardNumberDisplay, expDate, cvv);
+  form.classList.add("hidden");
+  completed.classList.remove("hidden");
+});
+
+// continue button clicked
+document.querySelector(".continue").addEventListener("click", function () {
+  form.classList.remove("hidden");
+  completed.classList.add("hidden");
+
+  displayCardName.textContent = "Jane Appleseed";
+  displayCardNumber.textContent = "0000 0000 0000 0000";
+  displayCvv.textContent = "000";
+  displayExpDate.textContent = "00/0000";
+
+  inputCardholderNameField.value = "";
+  inputCardNumberField.value = "";
+  inputExpMonthField.value = "";
+  inputExpYearField.value = "";
+  inputCvvNumberField.value = "";
+
+  cardholderName = "";
+  cardNumber = "";
+  cardNumberDisplay = "";
+  expMonth = "";
+  expYear = "";
+  cvv = "";
 });
